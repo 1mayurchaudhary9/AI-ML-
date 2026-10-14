@@ -1,0 +1,48 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Git: Review Changes (Status & Diff)",
+            "type": "shell",
+            "command": "git status; git diff --stat",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "focus": true
+            },
+            "group": "none"
+        },
+        {
+            "label": "Git: Safe Commit & Push to dave",
+            "type": "shell",
+            "command": "powershell.exe -ExecutionPolicy Bypass -File .\\git-sync.ps1 -Message \"${input:commitMessage}\"",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "focus": true
+            },
+            "group": "none"
+        },
+        {
+            "label": "Git: Pull Latest from dave",
+            "type": "shell",
+            "command": "git pull origin dave",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "group": "none"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "commitMessage",
+            "type": "promptString",
+            "description": "Enter commit message (required to review & push to dave):",
+            "default": "Update project files"
+        }
+    ]
+}
