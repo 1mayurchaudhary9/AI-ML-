@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Safe Git review, commit, and push helper script for the 'dave' branch.
+    Safe Git review, commit, and push helper script for the 'dev' branch.
 .DESCRIPTION
     Ensures safe review before committing and pushing changes to GitHub.
     Prevents accidental pushes to 'main'.
@@ -14,20 +14,20 @@ param (
 $ErrorActionPreference = "Stop"
 
 Write-Host "`n==========================================" -ForegroundColor Cyan
-Write-Host "       Git Safe Sync Helper (dave)        " -ForegroundColor Cyan
+Write-Host "       Git Safe Sync Helper (dev)         " -ForegroundColor Cyan
 Write-Host "==========================================`n" -ForegroundColor Cyan
 
 # 1. Check current branch
 $currentBranch = (git branch --show-current).Trim()
 Write-Host "[1/5] Current branch: $currentBranch" -ForegroundColor Yellow
 
-if ($currentBranch -ne "dave") {
-    Write-Host "[WARNING] You are currently on branch '$currentBranch', NOT 'dave'!" -ForegroundColor Red
-    Write-Host "Switching to 'dave' branch to protect '$currentBranch'..." -ForegroundColor Yellow
-    git checkout dave
+if ($currentBranch -ne "dev") {
+    Write-Host "[WARNING] You are currently on branch '$currentBranch', NOT 'dev'!" -ForegroundColor Red
+    Write-Host "Switching to 'dev' branch to protect '$currentBranch'..." -ForegroundColor Yellow
+    git checkout dev
     $currentBranch = (git branch --show-current).Trim()
-    if ($currentBranch -ne "dave") {
-        Write-Error "Failed to switch to 'dave' branch. Aborting."
+    if ($currentBranch -ne "dev") {
+        Write-Error "Failed to switch to 'dev' branch. Aborting."
         exit 1
     }
 }
@@ -62,13 +62,13 @@ git add .
 Write-Host "[4/5] Committing changes with message: '$Message'..." -ForegroundColor Yellow
 git commit -m "$Message"
 
-# 5. Push to GitHub origin dave
-Write-Host "`n[5/5] Pushing to origin dave..." -ForegroundColor Yellow
-git push origin dave
+# 5. Push to GitHub origin dev
+Write-Host "`n[5/5] Pushing to origin dev..." -ForegroundColor Yellow
+git push origin dev
 
 if ($LASTEXITCODE -eq 0) {
     Write-Host "`n[SUCCESS] Successfully pushed changes to GitHub!" -ForegroundColor Green
-    Write-Host "View your branch online at: https://github.com/1mayurchaudhary9/AI-ML-/tree/dave`n" -ForegroundColor Cyan
+    Write-Host "View your branch online at: https://github.com/1mayurchaudhary9/AI-ML-/tree/dev`n" -ForegroundColor Cyan
 } else {
     Write-Host "`n[ERROR] Failed to push changes. Please check network/credentials.`n" -ForegroundColor Red
     exit $LASTEXITCODE

@@ -14,7 +14,7 @@
             "group": "none"
         },
         {
-            "label": "Git: Safe Commit & Push to dave",
+            "label": "Git: Safe Commit & Push to dev",
             "type": "shell",
             "command": "powershell.exe -ExecutionPolicy Bypass -File .\\git-sync.ps1 -Message \"${input:commitMessage}\"",
             "problemMatcher": [],
@@ -26,9 +26,9 @@
             "group": "none"
         },
         {
-            "label": "Git: Pull Latest from dave",
+            "label": "Git: Pull Latest from dev",
             "type": "shell",
-            "command": "git pull origin dave",
+            "command": "git pull origin dev",
             "problemMatcher": [],
             "presentation": {
                 "reveal": "always",
@@ -41,7 +41,7 @@
         {
             "id": "commitMessage",
             "type": "promptString",
-            "description": "Enter commit message (required to review & push to dave):",
+            "description": "Enter commit message (required to review & push to dev):",
             "default": "Update project files"
         }
     ]

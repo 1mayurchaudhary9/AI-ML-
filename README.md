@@ -17,7 +17,7 @@ sem-7_practica_backup/
 ## Branch Strategy
 
 - **`main`**: Original base branch.
-- **`dave`**: Active working and development branch.
+- **`dev`**: Active working and development branch.
 
 ## Safe Git Workflow
 
@@ -26,7 +26,7 @@ To ensure changes are reviewed before pushing and to protect `main`:
 ### Option 1: Using VS Code Tasks
 1. Press `Ctrl + Shift + P` (or `Cmd + Shift + P` on macOS) and type **Tasks: Run Task**.
 2. Select **Git: Review Changes (Status & Diff)** to review what changed.
-3. Select **Git: Safe Commit & Push to dave** and enter your commit message when prompted.
+3. Select **Git: Safe Commit & Push to dev** and enter your commit message when prompted.
 
 ### Option 2: Using the Git Helper Script
 Run the PowerShell helper script from the terminal:
@@ -40,8 +40,8 @@ Or with a message directly:
 
 ### Option 3: Manual Git Commands
 ```bash
-# Verify you are on branch dave
-git checkout dave
+# Verify you are on branch dev
+git checkout dev
 
 # Check status
 git status
@@ -52,6 +52,6 @@ git add .
 # Commit with a meaningful message
 git commit -m "Your descriptive commit message"
 
-# Push to dave branch on GitHub
-git push origin dave
+# Push to dev branch on GitHub
+git push origin dev
 ```
